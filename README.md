@@ -1,3 +1,5 @@
+# qBittorrent and NordVPN Docker
+
 ## Introduction
 
 I created this container to bundle qBittorrent and NordVPN for my arr suite. Originally, I was using a dedicated VM for downloads even though the rest of the suite was a docker container. The reason I did this was I needed to use NordVPN and have it auto start at VM boot. This has solved the problem. This is still in testing and needs a lot of trimming on the Dockerfile but still gets the job done.
@@ -69,3 +71,9 @@ Sometimes the connection to the VPN is not made at a container start. This has m
 Connecting to United States #9679 (us9679.nordvpn.com)
 You are connected to United States #9679 (us9679.nordvpn.com)!
 ```
+
+### Credit
+
+1. Idea and part of the Dockerfile credit goes to [DyonR](https://github.com/DyonR/docker-qbittorrentvpn)
+2. Hash generation script was from the user *57d6f0* in the [qBittorrent forums](https://forum.qbittorrent.org/viewtopic.php?t=8149)
+3. [qBittorrent](https://github.com/qbittorrent/qBittorrent)
