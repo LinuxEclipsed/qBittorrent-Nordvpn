@@ -1,4 +1,4 @@
-FROM debian:12-slim
+FROM ubuntu:22.04
 
 LABEL maintainer="TruckeeAviator"
 
@@ -38,8 +38,7 @@ RUN apt update \
     libboost-chrono-dev \
     libboost-random-dev \
     qtbase5-private-dev \
-    libqt5svg5-dev \
-    vim
+    libqt5svg5-dev
 
 # Install Libtorrent
 RUN LIBTORRENT_ASSETS=$(curl -sX GET "https://api.github.com/repos/arvidn/libtorrent/releases" | jq '.[] | select(.prerelease==false) | select(.target_commitish=="RC_1_2") | .assets_url' | head -n 1 | tr -d '"') \
@@ -66,7 +65,6 @@ RUN apt install -y --no-install-recommends \
 
 # Install Nord
 COPY src/install.sh /opt
-COPY src/start.py /
 RUN chmod +x install.sh && ./install.sh
 
 # Cleanup
@@ -74,7 +72,6 @@ RUN cd /opt \
     && rm -rf /opt/* \
     && apt purge -y \
     build-essential \
-    ca-certificates \
     curl \
     jq \
     libssl-dev \
@@ -95,6 +92,7 @@ RUN cd /opt \
     /var/tmp/* \
     /usr/include/*
 
+COPY src/start.py /
 COPY src/qBittorrent.conf /config/qBittorrent
 
 VOLUME /config /downloads

@@ -38,7 +38,7 @@ else:
     configFile.close()
 
 # Start services
-os.system("/etc/init.d/nordvpn start && sleep 2")
+os.system("sleep 2 && /etc/init.d/nordvpn start && sleep 2")
 os.system(f"nordvpn login --token {NORD_TOKEN} && sleep 2")
 os.system(f"nordvpn set dns {NORD_DNS}")
 os.system("nordvpn whitelist add port 8080")
