@@ -28,8 +28,8 @@ Docker compose or Docker CLI can be used to run the container. Podman seem to no
 ---
 services:
   qbittorrent:
-    image: qBittorrent-Nordvpn:latest
-    container_name: qBittorrent-Nordvpn
+    image: qbittorrent-nordvpn:latest
+    container_name: qbittorrent-nordvpn
     environment:
       - TZ=America/Los_Angeles
       - NORD_TOKEN=yourtokenhere # Required
@@ -50,7 +50,7 @@ services:
 
 ```bash
 docker run -d \
-  --name=qBittorrent-Nordvpn \
+  --name=qbittorrent-nordvpn \
   -e TZ=America/Los_Angeles \
   -e NORD_TOKEN=yourtokenhere
   -e QT_PASS=qbittorrentadminpassword \
@@ -61,7 +61,7 @@ docker run -d \
   -v /path/to/downloads:/downloads \
   --cap-add=NET_ADMIN \
   --restart unless-stopped \
-  qBittorrent-Nordvpn:latest
+  qbittorrent-nordvpn:latest
 ```
 
 ## Issues
