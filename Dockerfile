@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-LABEL maintainer="TruckeeAviator"
+LABEL maintainer="LinuxEclipsed"
 
 WORKDIR /opt
 
